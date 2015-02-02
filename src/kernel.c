@@ -115,6 +115,9 @@ void terminal_write(const char* str)
 		terminal_put_char(str[i]);
 }
 
+#if defined(__cplusplus)
+	extern "C"
+#endif
 int main(struct multiboot *mboot_pointer)
 {
 	terminal_initialize();
