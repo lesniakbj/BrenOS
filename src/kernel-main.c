@@ -58,7 +58,7 @@ uint16_t make_shell_entry(char character, uint8_t color)
 uint8_t strlen(const char* str)
 {
 	size_t ret = 0;
-	while( str[ret] != 0)
+	while(str[ret] != 0)
 		ret++;
 	
 	return ret;
