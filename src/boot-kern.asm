@@ -1,26 +1,30 @@
-# Multiboot Header Constants
 MBALIGN		equ 1 << 0
 MEMINFO		equ 1 << 1
 FLAGS		equ MBALIGN | MEMINFO
 MAGIC		equ 0x1BADB002
 CHECKSUM	equ -(MAGIC + FLAGS)
 
-section .multiboot
-align 4
+[BITS 32]
+[GLOBAL multiboot]
+[EXTERN code]
+[EXTERN bss]
+[EXTERN end]
+
+multiboot:
 	dd MAGIC
 	dd FLAGS
 	dd CHECKSUM
+	dd multiboot
+	dd code
+	dd bss
+	dd end
+	dd start
 	
-section .text
-global _start
-_start:
-	;mov esp, stack_top
-	
-	;extern kernel_main
-	;call kernel_main
-	
-	cli
+[GLOBAL start]
+[EXTERN main]
 
-.hang:
-	hlt
-	jmp .hang
+start:
+	push ebx
+	cli
+	call main
+	jmp $
