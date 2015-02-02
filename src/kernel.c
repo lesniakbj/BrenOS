@@ -115,5 +115,4 @@ int main(struct multiboot *mboot_pointer)
 {
 	terminal_initialize();
 	terminal_write("Hello, and welcome to BrenOS!");
-	return 0xDEADBEBE;
 }
