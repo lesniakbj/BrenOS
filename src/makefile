@@ -1,5 +1,5 @@
 SOURCES = boot.o kernel.o
-CFLAGS = -m32 -nostdlib -fno-builtin -fno-stack-protector
+CFLAGS = -m32 -std=gnu99 -nostdlib -ffreestanding -fno-builtin -fno-stack-protector
 LDFLAGS = -m elf_i386 -T link.ld
 ASFLAGS = -f elf32
 
