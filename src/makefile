@@ -1,7 +1,7 @@
-SOURCES = boot.o main.o
-CFLAGS = -nostdlib -nostdinc -fno-builtin -fno-stack-protector
-LDFLAGS = -T link.ld
-ASFLAGS = -f efl32
+SOURCES = boot.o kernel.o
+CFLAGS = -m32 -nostdlib -fno-builtin -fno-stack-protector
+LDFLAGS = -m elf_i386 -T link.ld
+ASFLAGS = -f elf32
 
 all: $(SOURCES) link
 
@@ -11,5 +11,5 @@ clean:
 link:
 	ld $(LDFLAGS) -o kernel.bin $(SOURCES)
 	
-.asm.o:
+.s.o:
 	nasm $(ASFLAGS) $<
