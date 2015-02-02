@@ -1,3 +1,7 @@
+#if defined(__linux__)
+	#error "Use a cross compiler!"
+#endif
+
 #if !defined(__i386__)
 	#error "Use ix86-elf compiler!"
 #endif
