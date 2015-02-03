@@ -1,0 +1,6 @@
+ASSEMBLER:
+	nasm -f elf32 boot.asm -o boot.o
+C:
+
+LD:
+	
