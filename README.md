@@ -26,25 +26,26 @@ Building the Kernel can be done only for Windows machine at the time, as I am cu
 
 PUSH ALL YOUR CHANGES TO GIT-HUB HERE TO MAKE THE ISO
 	
-    	From ./BrenOS/src	
-    		Assembler: `i686-elf-as boot.s -o boot.o`
+    	From A Linux Machine
+		Pull the changes to the kernel down
+		Run _Making the Bootable ISO_
 	
-From A Linux Machine
-	Pull the changes to the kernel down
-	Run `Making the Bootable ISO`
+
 	
 Making the Bootable ISO:
 ------------------------
-From A Linux Machine:
-	Run this command from the root directory of the project
-		`sudo sh make_iso.sh`
+
+	From A Linux Machine:
+		Run this command from the root directory of the project
+		sudo sh make_iso.sh
 	
 Running the Kernel:
 -------------------
-From A Linux Machine:
-	Use Qemu
-		`sudo qemu-system-i386 -kernel src/kernel.bin`
-		`sudo qemu-system-i386 -cdrom BrenOS.iso`
+
+	From A Linux Machine:
+		Use Qemu
+			sudo qemu-system-i386 -kernel src/kernel.bin
+			sudo qemu-system-i386 -cdrom BrenOS.iso
 
 - From A Windows Machine:
 	- TO-DO...
