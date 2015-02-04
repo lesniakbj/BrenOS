@@ -3,15 +3,15 @@ A Small x86 Monolithic Kernel
 
 
 Tools for Building the Kernel:
-	- From A Windows Machine:
-		- Install MinGW & add it to the PATH
-			- Available at: PATH TO MINGW HERE
-			- Install to C:\MinGW
-			- Add to PATH: C:\MinGW\bin
-		- Get the i686-elf-tools compiler toolset
-			- Available at: PATH TO COMPILER HERE
-			- Install to C:\i686-elf-tools
-			- Add to PATH: C:\i686-elf-tools\bin
+	From A Windows Machine:
+		Install MinGW & add it to the PATH
+			Available at: PATH TO MINGW HERE
+			Install to C:\MinGW
+			Add to PATH: C:\MinGW\bin
+		Get the i686-elf-tools compiler toolset
+			Available at: PATH TO COMPILER HERE
+			Install to C:\i686-elf-tools
+			Add to PATH: C:\i686-elf-tools\bin
 			
 Building the Kernel:
 	- From A Windows Machine:
