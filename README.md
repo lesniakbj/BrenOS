@@ -6,6 +6,7 @@ Everything needed to compile, build and run BrenOS lie within this directory. Li
 
 Tools for Building the Kernel:
 ------------------------------
+Currently, the compiler toolset is tooled to compile to a i686-elf Binary target from a Windows Machine. This requires MinGW for the GNU Resources, and the custom compiled i686-elf-tools compiler toolset. This toolset is a cross-compiler, allowing you to target i686-elf from a non-elf format.
 
     	Get MinGW: Available at PATH TO MINGW HERE
     	Install to `C:\MinGW`
@@ -16,15 +17,18 @@ Tools for Building the Kernel:
 	
 Building the Kernel:
 --------------------
-From A Windows Machine:
-	Ensure the Compiler is within your PATH
-	From `./BrenOS/src`
-		Assembler: `i686-elf-as boot.s -o boot.o`
-		C Compiler: `i686-elf-gcc -c kernel.c -o kernel.o -std=gun99 -ffreestanding -O2 -Wall -Wextra`
-		Linker: `i686-elf-gcc -T link.d -o kernel.bin -ffreestanding -O2 -nostdlib boot.o kernel.o -lgcc`
-		
-		PUSH ALL YOUR CHANGES TO GIT-HUB HERE TO MAKE THE ISO
+Building the Kernel can be done only for Windows machine at the time, as I am currently working on building an i686-elf Cross-Compiler for the Linux platform. Until that happens, the instructions to build the Kernel on Windows are as follows. Ensure that you have the Compilers and MinGW (and any Assemblers, Linkers, .dll's...) with your PATH variable:
 
+    	From ./BrenOS/src	
+    		Assembler: `i686-elf-as boot.s -o boot.o`
+    		C Compiler: `i686-elf-gcc -c kernel.c -o kernel.o -std=gun99 -ffreestanding -O2 -Wall -Wextra`
+    		Linker: `i686-elf-gcc -T link.d -o kernel.bin -ffreestanding -O2 -nostdlib boot.o kernel.o -lgcc`
+
+PUSH ALL YOUR CHANGES TO GIT-HUB HERE TO MAKE THE ISO
+	
+    	From ./BrenOS/src	
+    		Assembler: `i686-elf-as boot.s -o boot.o`
+	
 From A Linux Machine
 	Pull the changes to the kernel down
 	Run `Making the Bootable ISO`
