@@ -1,3 +1,4 @@
+sudo rm BrenOs.iso
 mkdir -p iso_bin
 mkdir -p iso_bin/boot
 cp -p src/kernel.bin iso_bin/boot/kernel.bin
