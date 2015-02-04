@@ -116,7 +116,7 @@ void terminal_write(const char* str)
 }
 
 #if defined(__cplusplus)
-	extern "C"
+extern "C"
 #endif
 int main(struct multiboot *mboot_pointer)
 {
