@@ -1,4 +1,4 @@
-# BrenOS
+BrenOS
 A Small x86 Monolithic Kernel
 =============================
 
