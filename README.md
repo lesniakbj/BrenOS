@@ -8,7 +8,7 @@ Tools for Building the Kernel:
 ------------------------------
 From A Windows Machine:
 * Install MinGW & add it to the PATH
-		Available at: PATH TO MINGW HERE
+	Available at: PATH TO MINGW HERE
 		Install to `C:\MinGW`
 		Add to PATH: `C:\MinGW\bin`
 	Get the i686-elf-tools compiler toolset
