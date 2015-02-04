@@ -1,8 +1,10 @@
 # BrenOS
 A Small x86 Monolithic Kernel
+=============================
 
 
 Tools for Building the Kernel:
+------------------------------
 	From A Windows Machine:
 		Install MinGW & add it to the PATH
 			Available at: PATH TO MINGW HERE
