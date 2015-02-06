@@ -9,20 +9,18 @@
 >Currently, the compiler toolset is tooled to compile to a i686-elf Binary target from a Windows Machine. This requires MinGW for the GNU Resources, and the custom compiled i686-elf-tools compiler toolset. This toolset is a cross-compiler, allowing you to target i686-elf from a non-elf format.
 
 ####MinGW
-######Get MinGW: `Available in tools/mingw-get-setup.7z`
+>######Get MinGW: `Available in tools/mingw-get-setup.7z`
 ```
 Run the installer:
 1. Options
   1. Set the installation directory to C:\MinGW
   2. Install the graphical user interface (GUI)
   3. Install for only the user (Keep your other directories clean)
-  
 2. Installation manager (runs after installation of the main packages is complete)
   1. msys-base
   2. mingw-32-base
   3. mingw-developer-toolkit
   4. mingw32-gcc-g++
-  
 3. Complete the installation by clicking on `Installation > Apply Changes` then `Apply`
 ```
 ######Add the toolset to the system PATH: `C:\MinGW\bin`
@@ -36,13 +34,12 @@ Run the installer:
     1. Click `Edit`
     2. At the end of the current variables present put a ";"
     3. Add `C:\MinGW\bin;`
-    
 2. Windows 7
   1. COMING SOON
 ```
 
 ####i686-elf-tools
-######Get the i686-elf-tools: `Available in tools/i686-elf-tools.7z`
+>######Get the i686-elf-tools: `Available in tools/i686-elf-tools.7z`
 ```
 1. Unzip to `C:\i686-elf-tools`
 ```
@@ -57,19 +54,28 @@ Run the installer:
     1. Click `Edit`
     2. At the end of the current variables present put a ";"
     3. Add `C:\i686-elf-tools\bin;`
-    
 2. Windows 7
   1. COMING SOON
 ```
 
-###NASM
+####NASM
+>######Get the i686-elf-tools: `Available in tools/nasm-2.11.06.7z`
 ```
-COMING SOON
+1. Unzip to `C:\nasm-2.11.06`
 ```
-
-###QEmu
+######Add the toolset to the system PATH: `C:\nasm-2.11.06`
 ```
-COMING SOON
+1. Windows 8
+  1. Hit the windows key on the keyboard
+  2. Search for "System"
+  3. Click on "Advanced System Settings"
+  4. ... Enviorment Variables...
+  5. Find PATH or Path
+    1. Click `Edit`
+    2. At the end of the current variables present put a ";"
+    3. Add `C:\nasm-2.11.06;`
+2. Windows 7
+  1. COMING SOON
 ```
 
 ###Building the Kernel:
@@ -85,22 +91,19 @@ COMING SOON
     	From A Linux Machine
 		Pull the changes to the kernel down
 		Run _Making the Bootable ISO_
-	
-
-	
+		
 ###Making the Bootable ISO:
+>######NOTE: This section MAY BE SKIPPED if you would like to run the kernel as a `.bin`
+```
+1.From A Linux Machine:
+  1.Run this command from the root directory of the project
+  2.sudo sh make_iso.sh
+```
 
-	From A Linux Machine:
-		Run this command from the root directory of the project
-		sudo sh make_iso.sh
-	
 ###Running the Kernel:
+>There are a few different methods that you can run the kernel. There are instructions that follow for 2 different flavors of vitrual machines (QEmu and Hyper-V) and how to run this on real hardware. The kernel does not need a full ISO image in order to it to be run (on virtual hardware), and it can simply be ran with the .bin binary file. To do either, follow the instructions below. 
 
-	From A Linux Machine:
-		Use Qemu
-			sudo qemu-system-i386 -kernel src/kernel.bin
-			sudo qemu-system-i386 -cdrom BrenOS.iso
-
-- From A Windows Machine:
-	- TO-DO...
-	
+####QEmu
+```
+TO COME...
+```
