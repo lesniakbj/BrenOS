@@ -59,13 +59,43 @@ Run the installer:
 ```
 
 ###NASM
+>######Get the i686-elf-tools: `Available in tools/nasm-2.11.06.7z`
 ```
-COMING SOON
+1. Unzip to `C:\nasm-2.11.06`
+```
+######Add the toolset to the system PATH: `C:\nasm-2.11.06`
+```
+1. Windows 8
+  1. Hit the windows key on the keyboard
+  2. Search for "System"
+  3. Click on "Advanced System Settings"
+  4. ... Enviorment Variables...
+  5. Find PATH or Path
+    1. Click `Edit`
+    2. At the end of the current variables present put a ";"
+    3. Add `C:\nasm-2.11.06;`
+2. Windows 7
+  1. COMING SOON
 ```
 
 ###QEmu
+>######Get the i686-elf-tools: `Available in tools/qemu-2.2.0-win32.7z`
 ```
-COMING SOON
+1. Unzip to `C:\qemu-2.2.0-win32`
+```
+######Add the toolset to the system PATH: `C:\qemu-2.2.0-win32`
+```
+1. Windows 8
+  1. Hit the windows key on the keyboard
+  2. Search for "System"
+  3. Click on "Advanced System Settings"
+  4. ... Enviorment Variables...
+  5. Find PATH or Path
+    1. Click `Edit`
+    2. At the end of the current variables present put a ";"
+    3. Add `C:\qemu-2.2.0-win32;`
+2. Windows 7
+  1. COMING SOON
 ```
 
 ###Building the Kernel:
