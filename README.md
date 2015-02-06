@@ -6,6 +6,7 @@
 >Everything needed to compile, build and run BrenOS lie within this directory. Links to the necessary tools (when they are not bundled within this project) will be available. Just follow the instructions. 
 
 ###Tools for Building the Kernel:
+---------------------------------
 >Currently, the compiler toolset is tooled to compile to a i686-elf Binary target from a Windows Machine. This requires MinGW for the GNU Resources, and the custom compiled i686-elf-tools compiler toolset. This toolset is a cross-compiler, allowing you to target i686-elf from a non-elf format.
 
 ####MinGW
@@ -58,7 +59,7 @@ Run the installer:
   1. COMING SOON
 ```
 
-###NASM
+####NASM
 >######Get the i686-elf-tools: `Available in tools/nasm-2.11.06.7z`
 ```
 1. Unzip to `C:\nasm-2.11.06`
@@ -78,12 +79,8 @@ Run the installer:
   1. COMING SOON
 ```
 
-###QEmu
-```
-TO COME...
-```
-
 ###Building the Kernel:
+-----------------------
 >Building the Kernel can be done only for Windows machine at the time, as I am currently working on building an i686-elf Cross-Compiler for the Linux platform. Until that happens, the instructions to build the Kernel on Windows are as follows. Ensure that you have the Compilers and MinGW (and any Assemblers, Linkers, .dll's...) with your PATH variable:
 
     	From ./BrenOS/src	
@@ -96,8 +93,15 @@ TO COME...
     	From A Linux Machine
 		Pull the changes to the kernel down
 		Run _Making the Bootable ISO_
-	
 
+###Running the Kernel:
+----------------------
+>There are a few different methods that you can run the kernel. There are instructions that follow for 2 different flavors of vitrual machines (QEmu and Hyper-V) and how to run this on real hardware. 
+
+####QEmu
+```
+TO COME...
+```
 	
 ###Making the Bootable ISO:
 >######NOTE: This section MAY BE SKIPPED if you would like to run the kernel as a `.bin`
