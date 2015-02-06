@@ -100,18 +100,12 @@ TO COME...
 
 	
 ###Making the Bootable ISO:
+>######NOTE: This section MAY BE SKIPPED if you would like to run the kernel as a `.bin`
+```
+1.From A Linux Machine:
+  1.Run this command from the root directory of the project
+  2.sudo sh make_iso.sh
+```
 
-	From A Linux Machine:
-		Run this command from the root directory of the project
-		sudo sh make_iso.sh
-	
 ###Running the Kernel:
-
-	From A Linux Machine:
-		Use Qemu
-			sudo qemu-system-i386 -kernel src/kernel.bin
-			sudo qemu-system-i386 -cdrom BrenOS.iso
-
-- From A Windows Machine:
-	- TO-DO...
-	
+>There are multiple ways to run the kernel. It does not need a full ISO image in order to for the kernel to be run, and it can simply be ran with the .bin binary file. To do either, follow the instructions below. 
