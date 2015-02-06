@@ -14,16 +14,11 @@
 #error "This tutorial needs to be compiled with a ix86-elf compiler"
 #endif
 
-enum vga_color;
-void terminal_writestring(const char* data);
-uint8_t make_color(enum vga_color bg, enum vga_color fg);
-uint16_t make_vgaentry(char c, uint8_t color);
+#include "includes/kern_screen_helper.h"
+#include "includes/kern_screen_functions.h"
+
+
 size_t strlen(const char* str);
-void terminal_initialize();
-void terminal_setcolor(uint8_t color);
-void terminal_putentryat(char c, uint8_t color, size_t x, size_t y);
-void terminal_putchar(char c);
-void terminal_writestring(const char* data);
 void kernel_main();
 
 /* Hardware text mode color constants. */
@@ -184,7 +179,7 @@ void create_box()
 
 void terminal_write_intro()
 {
-	terminal_writestring("Hello, and Welcome to BrenOS! \n");
+	terminal_writestring(" Hello, and Welcome to BrenOS! \n");
 	create_box();
 	terminal_put_string("| BrenOS - Current Known Commands |\n", 3, 2);
 	terminal_put_string(" --------------------------------- \n", 3, 3);
