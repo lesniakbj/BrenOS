@@ -1,9 +1,9 @@
 #BrenOS 
 ###A Small x86 Monolithic Kernel
 
-BrenOS is a toy Operating System built using the GNU Toolset. It is targeted at x86 PC's (System i386 or i686-elf Binary Format). It is meant as a way to get more familiar with building complex toolsets, and the challenge of completing a large, complicated piece of software. 
+>BrenOS is a toy Operating System built using the GNU Toolset. It is targeted at x86 PC's (System i386 or i686-elf Binary Format). It is meant as a way to get more familiar with building complex toolsets, and the challenge of completing a large, complicated piece of software. 
 
-Everything needed to compile, build and run BrenOS lie within this directory. Links to the necessary tools (when they are not bundled within this project) will be available. Just follow the instructions. 
+>Everything needed to compile, build and run BrenOS lie within this directory. Links to the necessary tools (when they are not bundled within this project) will be available. Just follow the instructions. 
 
 ###Tools for Building the Kernel:
 Currently, the compiler toolset is tooled to compile to a i686-elf Binary target from a Windows Machine. This requires MinGW for the GNU Resources, and the custom compiled i686-elf-tools compiler toolset. This toolset is a cross-compiler, allowing you to target i686-elf from a non-elf format.
