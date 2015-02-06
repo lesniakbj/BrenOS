@@ -9,20 +9,18 @@
 >Currently, the compiler toolset is tooled to compile to a i686-elf Binary target from a Windows Machine. This requires MinGW for the GNU Resources, and the custom compiled i686-elf-tools compiler toolset. This toolset is a cross-compiler, allowing you to target i686-elf from a non-elf format.
 
 ####MinGW
-######Get MinGW: `Available in tools/mingw-get-setup.7z`
+>######Get MinGW: `Available in tools/mingw-get-setup.7z`
 ```
 Run the installer:
 1. Options
   1. Set the installation directory to C:\MinGW
   2. Install the graphical user interface (GUI)
   3. Install for only the user (Keep your other directories clean)
-  
 2. Installation manager (runs after installation of the main packages is complete)
   1. msys-base
   2. mingw-32-base
   3. mingw-developer-toolkit
   4. mingw32-gcc-g++
-  
 3. Complete the installation by clicking on `Installation > Apply Changes` then `Apply`
 ```
 ######Add the toolset to the system PATH: `C:\MinGW\bin`
@@ -36,13 +34,12 @@ Run the installer:
     1. Click `Edit`
     2. At the end of the current variables present put a ";"
     3. Add `C:\MinGW\bin;`
-    
 2. Windows 7
   1. COMING SOON
 ```
 
 ####i686-elf-tools
-######Get the i686-elf-tools: `Available in tools/i686-elf-tools.7z`
+>######Get the i686-elf-tools: `Available in tools/i686-elf-tools.7z`
 ```
 1. Unzip to `C:\i686-elf-tools`
 ```
@@ -57,7 +54,6 @@ Run the installer:
     1. Click `Edit`
     2. At the end of the current variables present put a ";"
     3. Add `C:\i686-elf-tools\bin;`
-    
 2. Windows 7
   1. COMING SOON
 ```
