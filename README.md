@@ -1,5 +1,5 @@
 #BrenOS 
-##A Small x86 Monolithic Kernel
+###A Small x86 Monolithic Kernel
 
 >BrenOS is a toy Operating System built using the GNU Toolset. It is targeted at x86 PC's (System i386 or i686-elf Binary Format). It is meant as a way to get more familiar with building complex toolsets, and the challenge of completing a large, complicated piece of software. 
 
@@ -62,12 +62,12 @@ Run the installer:
   1. COMING SOON
 ```
 
-####NASM
+###NASM
 ```
 COMING SOON
 ```
 
-####QEmu
+###QEmu
 ```
 COMING SOON
 ```
