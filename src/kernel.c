@@ -13,7 +13,19 @@
 #if !defined(__i386__)
 #error "This tutorial needs to be compiled with a ix86-elf compiler"
 #endif
- 
+
+enum vga_color;
+void terminal_writestring(const char* data);
+uint8_t make_color(enum vga_color bg, enum vga_color fg);
+uint16_t make_vgaentry(char c, uint8_t color);
+size_t strlen(const char* str);
+void terminal_initialize();
+void terminal_setcolor(uint8_t color);
+void terminal_putentryat(char c, uint8_t color, size_t x, size_t y);
+void terminal_putchar(char c);
+void terminal_writestring(const char* data);
+void kernel_main();
+
 /* Hardware text mode color constants. */
 enum vga_color
 {
@@ -92,12 +104,20 @@ void terminal_putentryat(char c, uint8_t color, size_t x, size_t y)
  
 void terminal_putchar(char c)
 {
-	if(c == '\n')
+	
+	switch(c)
 	{
-		terminal_row++;
-		terminal_column = 0;
-		return;
+		case '\n':
+			terminal_row++;
+			terminal_column = 0;
+			return;
+			
+		case '\t':
+			for(int i = 0; i < 4; i++)
+				terminal_putchar(' ');
+			return;
 	}
+	
 	terminal_putentryat(c, terminal_color, terminal_column, terminal_row);
 	if ( ++terminal_column == VGA_WIDTH )
 	{
@@ -115,6 +135,63 @@ void terminal_writestring(const char* data)
 	for ( size_t i = 0; i < datalen; i++ )
 		terminal_putchar(data[i]);
 }
+
+void terminal_put_string(const char* str, size_t x, size_t y)
+{
+	size_t xOrig = x;
+	size_t len = strlen(str);
+	for(size_t i = 0; i < len + 1; i++)
+	{
+		if(str[i] == '\n')
+		{
+			y++;
+			x = xOrig;
+			break;
+		}
+		terminal_putentryat(str[i], terminal_color, x++, y);
+	}
+}
+
+void create_box()
+{
+	for(size_t x = 0; x < VGA_WIDTH; x++)
+	{
+		if(x == 0 || x == VGA_WIDTH - 1)
+			terminal_putchar(' ');
+		else
+			terminal_putchar('=');
+	}
+	
+	for(size_t num = 0; num < 10; num++)
+	{
+		for(size_t n = 0; n <= VGA_WIDTH - 1; n++)
+		{
+			if(n == 1 || n == VGA_WIDTH - 2)
+				terminal_putchar('=');
+			else
+				terminal_putchar(' ');
+		}
+	}
+	
+	for(size_t x = 0; x < VGA_WIDTH; x++)
+	{
+		if(x == 0 || x == VGA_WIDTH - 1)
+			terminal_putchar(' ');
+		else
+			terminal_putchar('=');
+	}
+}
+
+void terminal_write_intro()
+{
+	terminal_writestring("Hello, and Welcome to BrenOS! \n");
+	create_box();
+	terminal_put_string("| BrenOS - Current Known Commands |\n", 3, 2);
+	terminal_put_string(" --------------------------------- \n", 3, 3);
+	// Foreach command in list of known commands
+	// print the name
+	terminal_put_string("NONE!\n", 4, 4);
+}
  
 #if defined(__cplusplus)
 extern "C" /* Use C linkage for kernel_main. */
@@ -124,10 +201,20 @@ void kernel_main()
 	terminal_initialize();
 	/* Since there is no support for newlines in terminal_putchar yet, \n will
 	   produce some VGA specific character instead. This is normal. */
-	terminal_writestring("Hello, and Welcome to BrenOS! \n");
-	for(size_t x = 0; x < VGA_WIDTH; x++)
-	{
-		terminal_writestring("=");
-	}
-	terminal_writestring("");
+	
+	terminal_write_intro();
+	
+	/*
+	terminal_writestring("Escape Sequences:\n");
+	terminal_writestring("\a == slash a == Alarm (Beep, Bell)\n");
+	terminal_writestring("\b == slash b == Backspace\n");
+	terminal_writestring("\f == slash f == Formfeed\n");
+	terminal_writestring("\r == slash r == Carriage Return\n");
+	terminal_writestring("\t == slash t == Horizontal Tab\n");
+	terminal_writestring("\v == slash v == Vertical Tab\n");
+	terminal_writestring("\\ == slash b == Backslash\n");
+	terminal_writestring("\' == slash \' == Single quotation mark\n");
+	terminal_writestring("\" == slash \" == Double quotation mark\n");
+	terminal_writestring("\? == slash ? == Question mark\n");
+	*/
 }
