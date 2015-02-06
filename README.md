@@ -16,11 +16,13 @@ Run the installer:
   1. Set the installation directory to C:\MinGW
   2. Install the graphical user interface (GUI)
   3. Install for only the user (Keep your other directories clean)
+  
 2. Installation manager (runs after installation of the main packages is complete)
   1. msys-base
   2. mingw-32-base
   3. mingw-developer-toolkit
   4. mingw32-gcc-g++
+  
 3. Complete the installation by clicking on `Installation > Apply Changes` then `Apply`
 ```
 ######Add the toolset to the system PATH: `C:\MinGW\bin`
@@ -34,6 +36,7 @@ Run the installer:
     1. Click `Edit`
     2. At the end of the current variables present put a ";"
     3. Add `C:\MinGW\bin;`
+    
 2. Windows 7
   1. COMING SOON
 ```
@@ -54,6 +57,7 @@ Run the installer:
     1. Click `Edit`
     2. At the end of the current variables present put a ";"
     3. Add `C:\i686-elf-tools\bin;`
+    
 2. Windows 7
   1. COMING SOON
 ```
