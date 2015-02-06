@@ -6,7 +6,6 @@
 >Everything needed to compile, build and run BrenOS lie within this directory. Links to the necessary tools (when they are not bundled within this project) will be available. Just follow the instructions. 
 
 ###Tools for Building the Kernel:
----------------------------------
 >Currently, the compiler toolset is tooled to compile to a i686-elf Binary target from a Windows Machine. This requires MinGW for the GNU Resources, and the custom compiled i686-elf-tools compiler toolset. This toolset is a cross-compiler, allowing you to target i686-elf from a non-elf format.
 
 ####MinGW
@@ -80,7 +79,6 @@ Run the installer:
 ```
 
 ###Building the Kernel:
------------------------
 >Building the Kernel can be done only for Windows machine at the time, as I am currently working on building an i686-elf Cross-Compiler for the Linux platform. Until that happens, the instructions to build the Kernel on Windows are as follows. Ensure that you have the Compilers and MinGW (and any Assemblers, Linkers, .dll's...) with your PATH variable:
 
     	From ./BrenOS/src	
@@ -93,16 +91,7 @@ Run the installer:
     	From A Linux Machine
 		Pull the changes to the kernel down
 		Run _Making the Bootable ISO_
-
-###Running the Kernel:
-----------------------
->There are a few different methods that you can run the kernel. There are instructions that follow for 2 different flavors of vitrual machines (QEmu and Hyper-V) and how to run this on real hardware. 
-
-####QEmu
-```
-TO COME...
-```
-	
+		
 ###Making the Bootable ISO:
 >######NOTE: This section MAY BE SKIPPED if you would like to run the kernel as a `.bin`
 ```
@@ -112,4 +101,9 @@ TO COME...
 ```
 
 ###Running the Kernel:
->There are multiple ways to run the kernel. It does not need a full ISO image in order to for the kernel to be run, and it can simply be ran with the .bin binary file. To do either, follow the instructions below. 
+>There are a few different methods that you can run the kernel. There are instructions that follow for 2 different flavors of vitrual machines (QEmu and Hyper-V) and how to run this on real hardware. The kernel does not need a full ISO image in order to it to be run (on virtual hardware), and it can simply be ran with the .bin binary file. To do either, follow the instructions below. 
+
+####QEmu
+```
+TO COME...
+```
