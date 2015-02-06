@@ -59,7 +59,7 @@ Get the i686-elf-tools: `Available in tools/i686-elf-tools.7z`
 COMING SOON
 ```
 
-#######QEmu
+######QEmu
 ```
 COMING SOON
 ```
