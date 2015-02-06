@@ -7,8 +7,9 @@
 
 ###Tools for Building the Kernel:
 >Currently, the compiler toolset is tooled to compile to a i686-elf Binary target from a Windows Machine. This requires MinGW for the GNU Resources, and the custom compiled i686-elf-tools compiler toolset. This toolset is a cross-compiler, allowing you to target i686-elf from a non-elf format.
-``` 
+
 #####MinGW
+``` 
 Get MinGW: `Available in tools/mingw-get-setup.7z`
 Run the installer:
 1. Options
