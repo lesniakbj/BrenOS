@@ -35,7 +35,7 @@ enum vga_color
 	COLOR_WHITE = 15,
 };
  
-uint8_t make_color(enum vga_color fg, enum vga_color bg)
+uint8_t make_color(enum vga_color bg, enum vga_color fg)
 {
 	return fg | bg << 4;
 }
@@ -67,7 +67,7 @@ void terminal_initialize()
 {
 	terminal_row = 0;
 	terminal_column = 0;
-	terminal_color = make_color(COLOR_LIGHT_GREY, COLOR_BLACK);
+	terminal_color = make_color(COLOR_LIGHT_CYAN, COLOR_RED);
 	terminal_buffer = (uint16_t*) 0xB8000;
 	for ( size_t y = 0; y < VGA_HEIGHT; y++ )
 	{
@@ -118,5 +118,6 @@ void kernel_main()
 	terminal_initialize();
 	/* Since there is no support for newlines in terminal_putchar yet, \n will
 	   produce some VGA specific character instead. This is normal. */
-	terminal_writestring("Hello, kernel World!\n");
+	terminal_writestring("Hello, and Welcome to BrenOS!\n");
+	terminal_writestring("\23490k12		j;lk\j1  2-9i\'1\[2p3\]]");
 }

@@ -1,6 +1,6 @@
 SOURCES = boot.o kernel.o
-CFLAGS = -m32 -std=gnu99 -nostdlib -ffreestanding -fno-builtin -fno-stack-protector
-LDFLAGS = -T link.ld -nostdlib -lgcc
+CFLAGS = -std=gnu99 -ffreestanding -O2 -Wall -Wextra
+LDFLAGS = -T link.ld -ffreestanding -O2 -nostdlib boot.o kernel.o -lgcc
 ASFLAGS = 
 
 all: $(SOURCES) link
