@@ -23,11 +23,22 @@ Run the installer:
   4. mingw32-gcc-g++
 3. Complete the installation by clicking on `Installation > Apply Changes` then `Apply`
 ```
-    	
-Get the i686-elf-tools compiler toolset
-Install to `C:\i686-elf-tools`
-Add to PATH: `C:\i686-elf-tools\bin`
-
+#####i686-elf-tools
+```
+Get the i686-elf-tools: `Available in tools/i686-elf-tools.7z`
+1. Unzip to `C:\i686-elf-tools`
+2. Add the toolset to the system PATH: `C:\i686-elf-tools\bin`
+  1. Windows 8
+    1. Hit the windows key on the keyboard
+    2. Search for "System"
+    3. Click on "Advanced System Settings"
+    4. ... Enviorment Variables...
+    5. Find PATH or Path
+      1. At the end of the current variables present put a ";"
+      2. Add `C:\MinGW\bin;`
+  2. Windows 7
+    1. COMING SOON
+```
 ###Building the Kernel:
 >Building the Kernel can be done only for Windows machine at the time, as I am currently working on building an i686-elf Cross-Compiler for the Linux platform. Until that happens, the instructions to build the Kernel on Windows are as follows. Ensure that you have the Compilers and MinGW (and any Assemblers, Linkers, .dll's...) with your PATH variable:
 
