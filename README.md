@@ -7,14 +7,26 @@
 
 ###Tools for Building the Kernel:
 >Currently, the compiler toolset is tooled to compile to a i686-elf Binary target from a Windows Machine. This requires MinGW for the GNU Resources, and the custom compiled i686-elf-tools compiler toolset. This toolset is a cross-compiler, allowing you to target i686-elf from a non-elf format.
-
-    	Get MinGW: Available at PATH TO MINGW HERE
-    	Install to `C:\MinGW`
+``` 
+#####MinGW
+Get MinGW: `Available in tools/mingw-get-setup.7z`
+Run the installer:
+1. Options
+  1. Set the installation directory to C:\MinGW
+  2. Install the graphical user interface (GUI)
+  3. Install for only the user (Keep your other directories clean)
+2. Installation manager (runs after installation of the main packages is complete)
+  1. msys-base
+  2. mingw-32-base
+  3. mingw-developer-toolkit
+  4. mingw32-gcc-g++
+3. Complete the installation by clicking on `Installation > Apply Changes` then `Apply`
+```
     	
-    	Get the i686-elf-tools compiler toolset
-    	Install to `C:\i686-elf-tools`
-    	Add to PATH: `C:\i686-elf-tools\bin`
-	
+Get the i686-elf-tools compiler toolset
+Install to `C:\i686-elf-tools`
+Add to PATH: `C:\i686-elf-tools\bin`
+
 ###Building the Kernel:
 >Building the Kernel can be done only for Windows machine at the time, as I am currently working on building an i686-elf Cross-Compiler for the Linux platform. Until that happens, the instructions to build the Kernel on Windows are as follows. Ensure that you have the Compilers and MinGW (and any Assemblers, Linkers, .dll's...) with your PATH variable:
 
