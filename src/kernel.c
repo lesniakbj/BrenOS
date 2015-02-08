@@ -7,10 +7,12 @@
 #include "includes/shell.h"
 #include "includes/libcfuncs.h"
 #include "includes/keyboard.h"
+#include "includes/interrupt.h"
+#include "includes/multiboot.h"
 
 void kern_main();
 
-void kern_main()
+void kern_main(struct multiboot *mboot_ptr)
 {
 	sh_initialize();	
 	char countStr[32];
@@ -25,8 +27,20 @@ void kern_main()
 		sh_write_string("\n");
 	}
 	*/
-	sh_write_string("Escape Sequences:");
-	sh_write_string(int_to_string(kb_control_status(), countStr, 2));
+	sh_write_string("Escape Sequences:\n");
+	sh_write_string(int_to_string(kb_control_status(), countStr, 16));
+	sh_write_string(", ");
+	sh_write_string(int_to_string(kb_control_status(), countStr, 10));
+	sh_write_string("\nLower memory: ");
+	sh_write_string(int_to_string(mboot_ptr->mem_lower, countStr, 16));
+	sh_write_string(", ");
+	sh_write_string(int_to_string(mboot_ptr->mem_lower, countStr, 10));
+	sh_write_string("\nUpper memory: ");
+	sh_write_string(int_to_string(mboot_ptr->mem_upper, countStr, 16));
+	sh_write_string(", ");
+	sh_write_string(int_to_string(mboot_ptr->mem_upper, countStr, 10));
+	
+	idt_install();
 
 	/*
 	sh_write_string("\a == slash a == Alarm (Beep, Bell)\n");
