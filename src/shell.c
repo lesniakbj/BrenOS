@@ -18,6 +18,8 @@ void sh_initialize()
 			const size_t index = (y * S_WIDTH) + x;
 			SH_BUFFER[index] = s_create(' ', SH_COLOR);
 		}
+	
+	sh_write_string("BrenOS$>");
 }
 
 void sh_color(uint8_t color)
@@ -37,7 +39,6 @@ void sh_write_char(char c)
 	switch(c)
 	{
 		case '\n':
-			// Soon to come... check for scrolling
 			SH_COLUMN = 0;
 			SH_ROW++;
 			if(SH_ROW == S_HEIGHT)

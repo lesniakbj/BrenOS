@@ -6,7 +6,6 @@ MAGIC       equ  0x1BADB002             ; 'magic number' lets bootloader find th
 CHECKSUM    equ -(MAGIC + FLAGS)        ; checksum of above, to prove we are multiboot
  
 global multiboot
-
 SECTION multiboot
 ALIGN 4
 multiboot:
@@ -35,10 +34,26 @@ _start:
 	call kern_main
 
 	cli
+	
 .hang:
 	hlt
 	jmp .hang
 
+global gdt_flush
+extern g_ptr
+gdt_flush:
+	lgdt [g_ptr]
+	mov ax, 0x10
+	mov ds, ax
+	mov es, ax
+	mov fs, ax
+	mov gs, ax
+	mov ss, ax
+	jmp 0x08:flush2
+
+flush2:
+	ret
+	
 global idt_load
 extern i_ptr
 idt_load:
@@ -84,56 +99,194 @@ isr0:
 	push byte 0
 	
 	jmp isr_common
-	
-;  1: Debug Exception
+
 isr1:
     cli
     push byte 0
     push byte 1
     jmp isr_common
-    
-; Fill in from 2 to 7 here!
-isr2:
-isr3:
-isr4:
-isr5:
-isr6:
-isr7:
 
-;  8: Double Fault Exception (With Error Code!)
+isr2:
+	cli
+	push byte 0
+	push byte 2
+	jmp isr_common
+	
+isr3:
+	cli
+    push byte 0
+    push byte 3
+    jmp isr_common
+	
+isr4:
+	cli
+    push byte 0
+    push byte 4
+    jmp isr_common
+	
+isr5:
+    cli
+    push byte 0
+    push byte 5
+    jmp isr_common
+	
+isr6:
+    cli
+    push byte 0
+    push byte 6
+    jmp isr_common
+
+isr7:
+    cli
+    push byte 0
+    push byte 7
+    jmp isr_common
+
 isr8:
     cli
     push byte 8        ; Note that we DON'T push a value on the stack in this one!
-                ; It pushes one already! Use this type of stub for exceptions
-                ; that pop error codes!
+						; It pushes one already! Use this type of stub for exceptions
+						; that pop error codes!
     jmp isr_common
-
-				; You should fill in from _isr9 to _isr31 here. Remember to
-                ; use the correct stubs to handle error codes and push dummies!
 				
 isr9:
+    cli
+    push byte 0
+    push byte 9
+    jmp isr_common
+
 isr10:
+    cli
+    push byte 10
+    jmp isr_common
+
 isr11:
+    cli
+    push byte 11
+    jmp isr_common
+
 isr12:
+    cli
+    push byte 12
+    jmp isr_common
+
 isr13:
+    cli
+    push byte 13
+    jmp isr_common
+
 isr14:
+    cli
+    push byte 14
+    jmp isr_common
+
 isr15:
+    cli
+    push byte 0
+    push byte 15
+    jmp isr_common
+
 isr16:
+    cli
+    push byte 0
+    push byte 16
+    jmp isr_common
+
 isr17:
+    cli
+    push byte 0
+    push byte 17
+    jmp isr_common
+
 isr18:
+    cli
+    push byte 0
+    push byte 18
+    jmp isr_common
+
+
 isr19:
+	cli
+    push byte 0
+    push byte 19
+    jmp isr_common
+
+
 isr20:
+    cli
+    push byte 0
+    push byte 20
+    jmp isr_common
+
 isr21:
+	cli
+    push byte 0
+    push byte 21
+    jmp isr_common
+
 isr22:
+    cli
+    push byte 0
+    push byte 22
+    jmp isr_common
+
+
 isr23:
+    cli
+    push byte 0
+    push byte 23
+    jmp isr_common
+
+
 isr24:
+    cli
+    push byte 0
+    push byte 24
+    jmp isr_common
+
 isr25:
+    cli
+    push byte 0
+    push byte 25
+    jmp isr_common
+
 isr26:
+    cli
+    push byte 0
+    push byte 26
+    jmp isr_common
+
 isr27:
+    cli
+    push byte 0
+    push byte 27
+    jmp isr_common
+
 isr28:
+    cli
+    push byte 0
+    push byte 28
+    jmp isr_common
+
+
 isr29:
+    cli
+    push byte 0
+    push byte 29
+    jmp isr_common
+
 isr30:
+    cli
+    push byte 0
+    push byte 30
+    jmp isr_common
+
+
 isr31:
+    cli
+    push byte 0
+    push byte 31
+    jmp isr_common
 				
 extern fault_handler
 

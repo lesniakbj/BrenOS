@@ -2,22 +2,34 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#include "includes/screen.h"
 #include "includes/core.h"
+#include "includes/screen.h"
 #include "includes/shell.h"
-#include "includes/libcfuncs.h"
+
 #include "includes/keyboard.h"
+
+#include "includes/descriptor.h"
+
 #include "includes/interrupt.h"
+#include "includes/int_service.h"
+
 #include "includes/multiboot.h"
+#include "includes/libcfuncs.h"
 
 void kern_main();
 
 void kern_main(struct multiboot *mboot_ptr)
 {
-	sh_initialize();	
+	gdt_install();
+	sh_initialize();
+	
+	idt_install();
+	//int_serve_install();
+	//__asm__ __volatile__ ("sti");
+	//sh_write_string(1/0);
+	/*
 	char countStr[32];
 	
-	/*
 	for(int x = 0; x < 81; x++)
 	{
 		sh_write_string("Iteration: ");
@@ -26,7 +38,7 @@ void kern_main(struct multiboot *mboot_ptr)
 		sh_write_string(int_to_string(x, countStr, 10));
 		sh_write_string("\n");
 	}
-	*/
+	
 	sh_write_string("Escape Sequences:\n");
 	sh_write_string(int_to_string(kb_control_status(), countStr, 16));
 	sh_write_string(", ");
@@ -42,7 +54,6 @@ void kern_main(struct multiboot *mboot_ptr)
 	
 	idt_install();
 
-	/*
 	sh_write_string("\a == slash a == Alarm (Beep, Bell)\n");
 	sh_write_string("\b == slash b == Backspace\n");
 	sh_write_string("\f == slash f == Formfeed\n");
